@@ -14,10 +14,11 @@ def find_pair_with_sum(sum):
     return None
 
 
-# ex 1
+# pt. 1
 (a, b) = find_pair_with_sum(2020)
 print(a * b)
 
+# pt. 2
 for number in number_set:
     pair = find_pair_with_sum(2020 - number)
     if pair is not None:
