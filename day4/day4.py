@@ -42,26 +42,26 @@ print(len(valid_passports))
 
 # TODO: there is one invalid passport that passes this test
 def check_passport_advanced(passport):
-    byr = re.match(r"\d{4}", passport["byr"])
+    byr = re.match(r"^\d{4}$", passport["byr"])
     if byr == None or int(byr.group(0)) < 1920 or int(byr.group(0)) > 2002:
         return False
-    iyr = re.match(r"\d{4}", passport["iyr"])
+    iyr = re.match(r"^\d{4}$", passport["iyr"])
     if iyr == None or int(iyr.group(0)) < 2010 or int(iyr.group(0)) > 2020:
         return False
-    eyr = re.match(r"\d{4}", passport["eyr"])
+    eyr = re.match(r"^\d{4}$", passport["eyr"])
     if eyr == None or int(eyr.group(0)) < 2020 or int(eyr.group(0)) > 2030:
         return False
-    hgt = re.match(r"(\d+)(cm|in)", passport["hgt"])
+    hgt = re.match(r"^(\d+)(cm|in)$", passport["hgt"])
     if hgt == None or (hgt.group(2) == "cm" and (int(hgt.group(1)) < 150
                                                  or int(hgt.group(1)) > 193)) or (hgt.group(2) == "in"
                                                                                   and (int(hgt.group(1)) < 59 or int(hgt.group(1)) > 76)):
         return False
-    hcl = re.match(r"\#[0-9a-f]{6}", passport["hcl"])
+    hcl = re.match(r"^\#[0-9a-f]{6}$", passport["hcl"])
     if hcl == None:
         return False
     if not passport["ecl"] in ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"]:
         return False
-    pid = re.match(r"\d{9}", passport["pid"])
+    pid = re.match(r"^\d{9}$", passport["pid"])
     if pid == None:
         return False
     return True
