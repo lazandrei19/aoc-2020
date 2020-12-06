@@ -21,9 +21,10 @@ ids = list(map(convert_to_id, passes))
 ids.sort()
 
 
-# Pt. 1
+# pt. 1
 print(ids[-1])
 
+# pt. 2
 for i in range(len(ids)):
     if ids[i] + 2 == ids[i+1]:
         print(ids[i] + 1)

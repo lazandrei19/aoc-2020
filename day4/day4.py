@@ -36,11 +36,10 @@ def check_passport(passport, keys):
 valid_passports = list(filter(lambda p: check_passport(
     p, ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"]), passports))
 
-# Pt. 1
+# pt. 1
 print(len(valid_passports))
 
 
-# TODO: there is one invalid passport that passes this test
 def check_passport_advanced(passport):
     byr = re.match(r"^\d{4}$", passport["byr"])
     if byr == None or int(byr.group(0)) < 1920 or int(byr.group(0)) > 2002:
@@ -69,5 +68,5 @@ def check_passport_advanced(passport):
 
 valid_passports_advanced = filter(check_passport_advanced, valid_passports)
 
-# Pt. 2
+# pt. 2
 print(len(list(valid_passports_advanced)))
